@@ -6,6 +6,7 @@ function Product({ dataProduct, addToCart, cartProduct }) {
     <div className="product-hunt">
       {dataProduct.map((element, index) => (
         <Item
+          key={index}
           elementProduct={element}
           addToCart={addToCart}
           cartProduct={cartProduct}
