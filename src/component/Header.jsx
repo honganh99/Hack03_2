@@ -1,39 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Header() {
+function Header({ dataProduct, cartProduct }) {
+  const [totalMoney, setTotalMoney] = useState(128000000000);
+
+  const totalPrice = cartProduct.reduce((total, prouct) => {
+    return total + prouct.price * prouct.quantity;
+  }, 0);
+
   return (
-    <div>
-      <nav className="nav-menu">
-        <p>NIKKOCHAN</p>
-        <ul className="menu-product">
-          <li>
-            <a href="">HOME</a>
-          </li>
-          <li>
-            <a href="">ABOUT</a>
-          </li>
-          <li>
-            <a href="">PAGES</a>
-          </li>
-          <li>
-            <a href="">BLOG</a>
-          </li>
-          <li>
-            <a href="">CONTACT</a>
-          </li>
-        </ul>
-        <ul className="menu-icon">
-          <li>
-            <i className="fa-solid fa-user" />
-          </li>
-          <li>
-            <i className="fa-solid fa-magnifying-glass" />
-          </li>
-          <li>
-            <i className="fa-solid fa-cart-shopping" />
-          </li>
-        </ul>
-      </nav>
+    <div className="header">
+      <p>
+        To Spend{" "}
+        <b style={{ color: "white" }}>
+          ${(totalMoney - totalPrice).toLocaleString("vi-VN")}
+        </b>
+        ,
+        <span>
+          {totalPrice == 0 ? "You have Money" : "You have a lot of Money"}
+        </span>{" "}
+      </p>
     </div>
   );
 }

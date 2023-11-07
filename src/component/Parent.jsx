@@ -161,7 +161,7 @@ function Parent() {
 
   return (
     <div>
-      <header className="header">
+      {/* <header className="header">
         <div className="container">
           <div className="header-menu">
             <div className="header-menu-1">
@@ -201,11 +201,11 @@ function Parent() {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
       <main className="main">
         <section className="box-1">
           <div className="container">
-            <Header />
+            <Header dataProduct={dataProduct} cartProduct={cartProduct} />
           </div>
         </section>
         <section className="box-3">
@@ -222,7 +222,11 @@ function Parent() {
       </main>
       <div className="box-all">
         <div className="table_list">
-          <Cart cartProduct={cartProduct} updateQuantity={updateQuantity} handleDelete={handleDelete} />
+          <Cart
+            cartProduct={cartProduct}
+            updateQuantity={updateQuantity}
+            handleDelete={handleDelete}
+          />
         </div>
       </div>
       <footer className="footer">

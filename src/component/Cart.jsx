@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Cart({ cartProduct, updateQuantity, handleDelete }) {
-  let totalPrice = cartProduct.reduce(function (price, product) {
-    return price + product.quantity * product.price;
-  }, 0);
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    let totalPrice1 = cartProduct.reduce(function (price, product) {
+      return price + product.quantity * product.price;
+    }, 0);
+    setTotalPrice(totalPrice1);
+  }, [cartProduct]);
   return (
     <div className="table_list-container">
       <div>
